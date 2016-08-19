@@ -17,6 +17,7 @@ alias gitr="git pull"
 
 # Programming
 alias py="python3"
+
 alias R="R --vanilla"
 alias Rscript="Rscript --vanilla"
 
