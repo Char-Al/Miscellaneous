@@ -11,9 +11,21 @@ For more information [click here](https://github.com/Char-Al/Miscellaneous/tree/
 
 ## Special tricks
 
-### One liner
-
-Size of all file with extension *.ext* on a directory
+### Add chr to a vcf
 ```bash
-ll /path/of/a/directory/*.ext | awk '{print $5}' | paste -sd+ - | bc  
+awk '{if($0 !~ /^#/) print "chr"$0; else print $0}' no_chr.vcf > with_chr.vcf
+```
+
+### Rename a list of file
+```bash
+for i in *.fastq.gz;
+do
+    NAME_T=$(echo $i | sed "s/-//g");
+    mv $i $NAME_T;
+done;
+```
+
+### Get size of a list of files
+```bash
+ll /path/of/a/directory/*.ext | awk '{print $5}' | paste -sd+ - | bc
 ```
