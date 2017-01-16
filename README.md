@@ -25,6 +25,10 @@ do
 done;
 ```
 
+### add RSA key to host
+cat ~/.ssh/id\_rsa.pub | ssh user@host 'mkdir .ssh && touch .ssh/authorized\_keys && cat >> .ssh/authorized\_keys'
+
+
 ### Get size of a list of files
 ```bash
 ll /path/of/a/directory/*.ext | awk '{print $5}' | paste -sd+ - | bc
