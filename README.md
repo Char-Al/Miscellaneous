@@ -18,9 +18,8 @@ awk '{if($0 !~ /^#/) print "chr"$0; else print $0}' no_chr.vcf > with_chr.vcf
 
 ### Rename a list of file
 ```bash
-for i in *.fastq;
-do
-    NAME_T=$(echo $i | sed "s/-//g");
+for i in *.fastq.gz; do
+    NAME_T=$(echo $i | sed "s/-A\|-B//g");
     mv $i $NAME_T;
 done;
 ```
